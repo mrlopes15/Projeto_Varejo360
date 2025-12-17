@@ -188,5 +188,6 @@ requirements.txt
 ## 13. Autor
 
 **Matheus Rodrigues Lopes**
+*Graduado em Ciências Contábeis | Estudante de Análise e Desenvolvimento de Sistemas (ADS)*
 * **LinkedIn: [ https://www.linkedin.com/in/matheuslopesr/]**
 * **GitHub: [ https://github.com/mrlopes15]**
