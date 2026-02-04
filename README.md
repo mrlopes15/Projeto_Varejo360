@@ -31,6 +31,7 @@ A solução foi estruturada em três camadas principais:
 * **Visualização executiva no Power BI**.
 
 O fluxo parte de dados simulados de varejo, passa por um pipeline em Python com apoio de IA generativa para classificação de ocorrências e termina em dashboards interativos que traduzem dados em decisões.
+O Power BI atua como camada final de consolidação e tomada de decisão, conectando indicadores técnicos a uma leitura executiva orientada à ação.
 
 
 ---
@@ -46,14 +47,15 @@ Especificamente, a IA foi aplicada para:
 * **Determinar o sentimento associado à avaliação**
 * **Sinalizar alertas de ruptura virtual quando aplicável**
 
-A IA não toma decisões no projeto, ela atua como um apoio analítico para estruturar informações não estruturadas.
+A IA não toma decisões no projeto, ela atua como um apoio analítico para estruturar informações não estruturadas. 
+As classificações geradas pela IA foram tratadas como insumo analítico e não como verdade absoluta, sendo utilizadas para estruturar padrões e tendências, não para decisões automatizadas.
 
 
 ---
 
 ## 5. Pipeline de dados - visão técnica simplificada
 
-O pipeline foi desenvolvido em Python e seguiu as seguintes etapas:
+O pipeline foi construído a partir de dados simulados, com o objetivo de reproduzir cenários realistas do varejo e permitir foco na análise, modelagem e visualização. O processo seguiu as seguintes etapas:
 
 * **Geração de dados fictícios realistas de varejo**
 * **Padronização e normalização de produtos**
@@ -83,7 +85,20 @@ O layout visual do dashboard foi desenhado previamente no Figma e depois impleme
 
 ---
 
-## 7. Dashboard — Panorama Executivo
+## 7. Tratamento de dados e métricas
+
+Durante o desenvolvimento do projeto, foi realizada uma etapa dedicada à validação e tratamento dos dados, com foco em consistência semântica e confiabilidade dos indicadores.
+
+A coluna de custo analítico foi importada a partir de um arquivo CSV em notação científica, representando valores unitários em dólar por análise. Durante a etapa de transformação no Power Query, foram realizados ajustes de tipagem e correção de escala, garantindo que os valores representassem corretamente o custo unitário em dólar por análise.
+
+Após o tratamento do dado base, a conversão monetária para real foi aplicada no DAX, utilizando uma taxa de câmbio fixa, com o objetivo de simular impacto financeiro e manter a regra de negócio separada da ingestão dos dados.
+
+Essa abordagem permitiu manter métricas auditáveis, evitar ajustes artificiais nos indicadores e garantir clareza na interpretação dos resultados.
+
+
+---
+
+## 8. Dashboard — Panorama Executivo
 
 Esta página oferece uma visão macro da operação.
 
@@ -92,7 +107,7 @@ Os elementos abordados:
 * **Total de ocorrências registradas**
 * **Quantidade de ocorrências negativas**
 * **Alertas de ruptura identificados**
-* **Custo estimado do processamento analítico**
+* **Custo médio estimado por análise (USD convertido para BRL – simulação)**
 * **Distribuição das ocorrências por categoria**
 * **Comparativo de ocorrências negativas por loja**
 * **Evolução temporal das ocorrências**
@@ -105,7 +120,7 @@ Objetivo é permitir que um gestor entenda rapidamente onde estão os principais
 
 ---
 
-## 8. Dashboard — Diagnóstico das Ocorrências e Impacto no Cliente
+## 9. Dashboard — Diagnóstico das Ocorrências e Impacto no Cliente
 
 Nesta etapa, o foco é entender o impacto das ocorrências na experiência do cliente.
 
@@ -123,7 +138,7 @@ Insight-chave: a ruptura virtual concentra a maior parte da insatisfação do cl
 
 ---
 
-## 9. Dashboard — Alertas de Ruptura e Ação Operacional
+## 10. Dashboard — Alertas de Ruptura e Ação Operacional
 
 Esta página é orientada à ação, tendo os como principais recursos:
 
@@ -138,12 +153,12 @@ O objetivo é apoiar decisões práticas, como:
 * **Revisão de processos logísticos**
 * **Ajustes de abastecimento por loja**
 
-![Ruptura e Prioridades de Acão](assets/pagina_3_rupturas.png)
+![Ruptura e Prioridades de Ação](assets/pagina_3_rupturas.png)
 
 
 ---
 
-## 10. Principais insights do projeto
+## 11. Principais insights do projeto
 
 * **A ruptura virtual representa mais de 60% das ocorrências negativas**
 * **Determinados produtos concentram alertas recorrentes**
@@ -155,7 +170,7 @@ Esses insights permitem sair da reação pontual e avançar para uma gestão pre
 
 ---
 
-## 11. Estrutura do repositório
+## 12. Estrutura do repositório
 
 src/
 	- gerar_dados.py
@@ -174,7 +189,7 @@ requirements.txt
 
 ---
 
-## 12. Próximos passos e evoluções possíveis
+## 13. Próximos passos e evoluções possíveis
 
 
 * **Conectar dados reais de vendas e estoque**
@@ -185,7 +200,7 @@ requirements.txt
 
 ---
 
-## 13. Autor
+## 14. Autor
 
 **Matheus Rodrigues Lopes**
 * Graduado em Ciências Contábeis | Estudante de Análise e Desenvolvimento de Sistemas (ADS)*
