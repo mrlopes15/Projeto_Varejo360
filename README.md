@@ -115,7 +115,7 @@ Os elementos abordados:
 Objetivo é permitir que um gestor entenda rapidamente onde estão os principais pontos de atenção.
 
 
-![Panorama Executivo](assets/pagina_1_panorama.png)
+![Panorama Executivo](assets/pagina_1_panorama_v2.png)
 
 
 ---
